@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慈律律師事務所 | 專業法律服務</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --silver: #C0C0C0;
+            --black: #1A1A1A;
+            --navy: #0A1931;
+            --dark-navy: #071022;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--dark-navy);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-navy);
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .search-icon {
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--white);
+            transition: color 0.3s;
+        }
+        
+        .search-icon:hover {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 25, 49, 0.7), rgba(10, 25, 49, 0.7)), url('hero-banner-1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--silver);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c19b2e;
+            transform: translateY(-2px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 8px;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 24px;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            height: 150px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-size: 40px;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .team-photo {
+            height: 280px;
+            background-color: var(--light-gray);
+            overflow: hidden;
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-info h3 {
+            margin-bottom: 5px;
+        }
+        
+        .team-info .position {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Noto Sans TC', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--silver);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
+        
+        /* Page Content */
+        .page-content {
+            display: none;
+            margin-top: 0;
+            padding: 60px 0;
+        }
+        
+        .active-page {
+            display: block;
+        }
+        
+        /* Map Container */
+        .map-container {
+            height: 400px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* QR Code */
+        .qrcode-container {
+            margin-top: 15px;
+            width: 150px;
+            height: 150px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .qrcode-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+       <div class="container header-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="慈律律師事務所">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link" data-page="home">首頁</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">關於我們</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">服務項目</a></li>
+                    <li><a href="#" class="nav-link" data-page="team">專業團隊</a></li>
+                    <li><a href="#" class="nav-link" data-page="appointment">預約諮詢</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">聯絡我們</a></li>
+                </ul>
+            </nav>
+         
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page-content active-page">
+        <div class="hero">
+            <!-- Hero Banner 輪播 -->
+            <div class="hero-slide active" style="background-image: url('hero-banner-1.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('hero-banner-2.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('hero-banner-3.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('hero-banner-4.jpg');"></div>
+
+            <div class="container hero-content">
+                <h1>慈律律師事務所</h1>
+                <p>專業法律服務 · 守護您的權益</p>
+                <p>Professional Legal Services · Protecting Your Rights</p>
+                <a href="#" class="btn nav-link" data-page="appointment">預約諮詢</a>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>專業法律顧問</h2>
+                    <p>慈律律師事務所成立於2010年，擁有豐富的法律實務經驗，專精於民事、刑事、家事、勞資等各類法律案件。我們秉持專業、誠信、效率的原則，為客戶提供最優質的法律服務。</p>
+                    <p>我們的律師團隊均畢業於國內知名法律院校，並擁有多年執業經驗，能夠針對不同案件提供專業的法律意見與解決方案。</p>
+                    <div class="contact-info" style="margin-top: 30px;">
+                        <p><strong>地址：</strong>新北市土城區青雲路145號2樓</p>
+                        <p><strong>電話：</strong>02-22668879</p>
+                        <p><strong>傳真：</strong>02-22625252</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="office-environment-1.jpg" alt="辦公室環境">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-content">
+        <div class="container">
+            <h2 class="section-title">關於我們</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>事務所理念與使命</h3>
+                    <p>慈律律師事務所以「慈心為本，律法為用」為核心理念，致力於為客戶提供專業、高效的法律服務，維護客戶的合法權益。</p>
+                    <p>Our firm is guided by the principle of "Compassion as Foundation, Law as Application," dedicated to providing professional and efficient legal services to protect our clients' legitimate rights and interests.</p>
+                </div>
+                <div class="about-image">
+                    <img src="team-working-1.jpg" alt="團隊工作照">
+                </div>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">⚖️</div>
+                    <h3>專業</h3>
+                    <p>擁有豐富法律實務經驗，精通各領域法律知識，為客戶提供最專業的法律意見。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>誠信</h3>
+                    <p>秉持誠實信用原則，以客戶利益為優先，建立長期信任關係。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>效率</h3>
+                    <p>迅速掌握案件重點，制定有效策略，確保客戶權益獲得及時保障。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3>關懷</h3>
+                    <p>理解客戶處境，提供溫暖支持，在法律程序中給予全方位關懷。</p>
+                </div>
+            </div>
+            
+            <div class="section-title">
+                    <h3>發展歷程</h3>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>1995年</h4>
+                        <p>慈律律師事務所正式成立</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2013年</h4>
+                        <p>擴大服務範圍，新增家事法律與刑事辯護部門</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2016年</h4>
+                        <p>遷址至新北市土城區青雲路，擴大辦公空間</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2019年</h4>
+                        <p>成立企業法律顧問部門，服務企業客戶</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2022年</h4>
+                        <p>榮獲「台灣最佳法律服務事務所」獎項</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="#" class="btn" data-page="appointment">預約諮詢</a>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Services Page -->
+    <section id="services" class="page-content">
+        <div class="container">
+            <h2 class="section-title">服務項目</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <div class="service-content">
+                        <h3>一般民事</h3>
+                        <p>契約糾紛、債務處理、損害賠償、不動產爭議等各類民事案件。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <div class="service-content">
+                        <h3>一般刑事</h3>
+                        <p>詐欺、傷害、竊盜、毒品等各類刑事案件辯護與告訴代理。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💔</div>
+                    <div class="service-content">
+                        <h3>離婚、家事</h3>
+                        <p>離婚協議、子女監護、扶養費、財產分配等家事案件處理。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <div class="service-content">
+                        <h3>交通事故</h3>
+                        <p>車禍理賠、過失傷害、肇事責任鑑定等交通事故法律服務。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📜</div>
+                    <div class="service-content">
+                        <h3>遺產繼承</h3>
+                        <p>遺產分割、繼承權確認、特留分保障等繼承相關法律事務。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <div class="service-content">
+                        <h3>代筆遺囑</h3>
+                        <p>遺囑撰寫、見證、保管，確保遺願合法有效執行。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <div class="service-content">
+                        <h3>不動產</h3>
+                        <p>買賣糾紛、租賃爭議、土地分割、建物產權等不動產法律事務。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <div class="service-content">
+                        <h3>家暴保護令</h3>
+                        <p>家庭暴力防治、保護令聲請、相關刑事告訴等法律服務。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <div class="service-content">
+                        <h3>勞資糾紛</h3>
+                        <p>薪資爭議、資遣解雇、職業災害、工時爭議等勞資案件處理。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👦</div>
+                    <div class="service-content">
+                        <h3>少年事件</h3>
+                        <p>少年保護事件、刑事案件處理，維護青少年法律權益。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📄</div>
+                    <div class="service-content">
+                        <h3>非訟事件</h3>
+                        <p>本票裁定、支付命令、公示催告、監護宣告等非訟程序。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <div class="service-content">
+                        <h3>強制執行</h3>
+                        <p>查封、拍賣、扣薪、假扣押等強制執行程序與異議處理。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Page -->
+    <section id="team" class="page-content">
+        <div class="container">
+            <h2 class="section-title">專業團隊</h2>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="lawyer1.jpg" alt="劉添錫律師">
+                    </div>
+                    <div class="team-info">
+                        <h3>劉添錫</h3>
+                        <p class="position">所長-資深律師</p>
+                        <p>國立台灣大學法律系畢業</p>
+                        <p>20年法律實務經驗，專精民事、刑事訴訟</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="lawyer2.jpg" alt="張育銜律師">
+                    </div>
+                    <div class="team-info">
+                        <h3>張育銜</h3>
+                        <p class="position">律師</p>
+                        <p>國立政治大學法律研究所碩士</p>
+                        <p>15年法律實務經驗，專精家事、勞資案件</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="lawyer3.jpg" alt="廖婉茹律師">
+                    </div>
+                    <div class="team-info">
+                        <h3>廖婉茹</h3>
+                        <p class="position">律師</p>
+                        <p>東吳大學法律系畢業</p>
+                        <p>12年法律實務經驗，專精不動產、遺產繼承</p>
+                    </div>
+                </div>
+		<div class="team-card">
+                    <div class="team-photo">
+                        <img src="lawyer4.jpg" alt="林原弘律師">
+                    </div>
+                    <div class="team-info">
+                        <h3>林原弘</h3>
+                        <p class="position">律師</p>
+                        <p>國立台灣大學法律系畢業</p>
+                        <p>20年法律實務經驗，專精民事、刑事訴訟</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="office1.jpg" alt="劉孟杰主任">
+                    </div>
+                    <div class="team-info">
+                        <h3>劉孟杰</h3>
+                        <p class="position">法務主任</p>
+                        <p>國立台北大學法律系畢業</p>
+                        <p>10年法務經驗，專精契約審閱、法律文件撰擬</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="office2.jpg" alt="李孟融組長">
+                    </div>
+                    <div class="team-info">
+                        <h3>李孟融</h3>
+                        <p class="position">法務組長</p>
+                        <p>輔仁大學法律系畢業</p>
+                        <p>8年法務經驗，專精訴訟案件準備與追蹤</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="office3.jpg" alt="鄭惟仁組長">
+                    </div>
+                    <div class="team-info">
+                        <h3>鄭惟仁</h3>
+                        <p class="position">法務組長</p>
+                        <p>國立中正大學法律系畢業</p>
+                        <p>7年法務經驗，專強制執行、非訟事件</p>
+                    </div>
+                </div>
+		<div class="team-card">
+                    <div class="team-photo">
+                        <img src="office1.jpg" alt="康鎮宇顧問">
+                    </div>
+                    <div class="team-info">
+                        <h3>康鎮宇</h3>
+                        <p class="position">法務顧問</p>
+                        <p>國立台北大學法律系畢業</p>
+                        <p>10年法務經驗，專精契約審閱、法律文件撰擬</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Page -->
+    <section id="appointment" class="page-content">
+        <div class="container">
+            <h2 class="section-title">預約諮詢</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>諮詢注意事項</h3>
+                    <p>為確保諮詢品質，請提前預約時間，我們將有專人為您服務。</p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div>
+                            <h4>服務時間</h4>
+                            <p>週一至週五：09:00 - 18:00</p>
+                            <p>週六：09:00 - 12:00（需預約）</p>
+                            <p>週日及國定假日休息</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">💬</div>
+                        <div>
+                            <h4>回覆時間</h4>
+                            <p>我們將於收到預約表單後1-2個工作日内與您聯繫確認。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🔒</div>
+                        <div>
+                            <h4>隱私保護</h4>
+                            <p>您提供的所有資訊都將受到嚴格保密，僅用於法律諮詢目的。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name">姓名 *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">電話 *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">諮詢類別 *</label>
+                            <select id="category" class="form-control" required>
+                                <option value="">請選擇諮詢類別</option>
+                                <option value="civil">一般民事</option>
+                                <option value="criminal">一般刑事</option>
+                                <option value="family">離婚、家事</option>
+                                <option value="traffic">交通事故</option>
+                                <option value="inheritance">遺產繼承</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="problem">問題簡述 *</label>
+                            <textarea id="problem" class="form-control" rows="4" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">預約時間 *</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        
+                        <button type="submit" class="btn">提交預約</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-content">
+        <div class="container">
+            <h2 class="section-title">聯絡我們</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h4>地址</h4>
+                            <p>新北市土城區青雲路145號2樓</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>電話</h4>
+                            <p>02-22668879</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">🕒</div>
+                        <div>
+                            <h4>上班時間</h4>
+                            <p>週一至週五：09:00 - 18:00</p>
+                            <p>週六：09:00 - 12:00（需預約）</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">💬</div>
+                        <div>
+                            <h4>LINE官方帳號</h4>
+                            <p>掃描QR Code加入好友</p>
+                            <div class="qrcode-container">
+                                <img src="line-qrcode.jpg" alt="LINE QR Code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="map-container">
+                        <!-- Google 地圖嵌入 -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.238292982987!2d121.44354631500577!3d24.97225998400945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681e2c8e8c845d%3A0x1c8b9c0b9c0b9c0b!2z5Y-w5p2x5Yip5rCR5biC!5e0!3m2!1szh-TW!2stw!4v1620000000000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>慈律律師事務所</h3>
+                    <p>專業法律服務，守護您的權益</p>
+                    <p>Professional Legal Services, Protecting Your Rights</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">首頁</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">關於我們</a></li>
+                        <li><a href="#" class="nav-link" data-page="services">服務項目</a></li>
+                        <li><a href="#" class="nav-link" data-page="team">專業團隊</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>聯絡資訊</h3>
+                    <p>新北市土城區青雲路145號2樓</p>
+                    <p>電話：02-22668879</p>
+                    <p>傳真：02-22625252</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>法律聲明</h3>
+                    <ul>
+                        <li><a href="#">隱私權政策</a></li>
+                        <li><a href="#">免責聲明</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 慈律律師事務所 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 頁面切換功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page-content');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // 隱藏所有頁面
+                    pages.forEach(page => {
+                        page.classList.remove('active-page');
+                    });
+                    
+                    // 顯示目標頁面
+                    document.getElementById(targetPage).classList.add('active-page');
+                    
+                    // 如果是首頁，滾動到頂部
+                    if(targetPage === 'home') {
+                        window.scrollTo(0, 0);
+                    }
+                });
+            });
+            
+            // 預約表單提交
+            const appointmentForm = document.getElementById('appointment-form');
+            if(appointmentForm) {
+                appointmentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('感謝您的預約！我們將於1-2個工作天內與您聯繫確認。');
+                    this.reset();
+                });
+            }
+            
+            // Hero Banner 輪播
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                heroSlides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % heroSlides.length;
+                heroSlides[currentSlide].classList.add('active');
+            }
+            
+            // 每5秒切換一次
+            setInterval(nextSlide, 5000);
+        });
+    </script>
+</body>
+</html>
